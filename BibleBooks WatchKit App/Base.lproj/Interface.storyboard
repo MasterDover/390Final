@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="8092"/>
+    </dependencies>
+    <scenes>
+        <!--MainIC-->
+        <scene sceneID="aou-V4-d1y">
+            <objects>
+                <controller id="AgC-eL-Hgc" customClass="MainIC" customModule="BibleBooks_WatchKit_Extension">
+                    <items>
+                        <table alignment="left" id="uZ6-KE-x7M">
+                            <items>
+                                <tableRow identifier="cell" id="aIw-9v-Moe" customClass="customRow" customModule="BibleBooks_WatchKit_Extension">
+                                    <group key="rootItem" width="1" alignment="left" id="aAj-lI-DGc">
+                                        <items>
+                                            <label width="112" height="41" alignment="left" text="Label" id="ham-Dz-ZkC"/>
+                                        </items>
+                                    </group>
+                                    <connections>
+                                        <outlet property="theLabel" destination="ham-Dz-ZkC" id="Lz2-jL-iOM"/>
+                                    </connections>
+                                </tableRow>
+                            </items>
+                        </table>
+                        <button width="136" alignment="left" title="Restart" id="FVh-Rr-xjY">
+                            <connections>
+                                <action selector="startButton" destination="AgC-eL-Hgc" id="Bam-EL-tKG"/>
+                            </connections>
+                        </button>
+                    </items>
+                    <connections>
+                        <outlet property="theTable" destination="uZ6-KE-x7M" id="oeX-5g-UyL"/>
+                        <segue destination="QAa-Kl-KKm" kind="relationship" relationship="nextPage" id="bm1-cd-Tuy"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="246" y="341"/>
+        </scene>
+        <!--SecondIC-->
+        <scene sceneID="VBu-2n-LH7">
+            <objects>
+                <controller identifier="SecondIC" hidesWhenLoading="NO" id="QAa-Kl-KKm" customClass="secondIC" customModule="BibleBooks_WatchKit_Extension">
+                    <items>
+                        <picker width="1" height="108" alignment="left" id="rF4-BQ-NE7"/>
+                        <label width="136" height="24" alignment="left" text="Label" id="zQE-EJ-U0H"/>
+                        <label width="136" alignment="left" text="Label" id="Czw-N0-gDg"/>
+                    </items>
+                    <connections>
+                        <outlet property="numGuesses" destination="zQE-EJ-U0H" id="BmW-Xp-yip"/>
+                        <outlet property="thePicker" destination="rF4-BQ-NE7" id="fbt-gg-aU3"/>
+                        <outlet property="wrongGuesses" destination="Czw-N0-gDg" id="3OG-P4-Bre"/>
+                    </connections>
+                </controller>
+            </objects>
+            <point key="canvasLocation" x="461" y="345.5"/>
+        </scene>
+        <!--Static Notification Interface Controller-->
+        <scene sceneID="AEw-b0-oYE">
+            <objects>
+                <notificationController id="YCC-NB-fut">
+                    <items>
+                        <label alignment="left" text="Alert Label" id="IdU-wH-bcW"/>
+                    </items>
+                    <notificationCategory key="notificationCategory" identifier="myCategory" id="JfB-70-Muf"/>
+                    <connections>
+                        <outlet property="notificationAlertLabel" destination="IdU-wH-bcW" id="JKC-fr-R95"/>
+                        <segue destination="4sK-HA-Art" kind="relationship" relationship="dynamicNotificationInterface" id="kXh-Jw-8B1"/>
+                    </connections>
+                </notificationController>
+            </objects>
+            <point key="canvasLocation" x="220" y="643"/>
+        </scene>
+        <!--Notification Controller-->
+        <scene sceneID="ZPc-GJ-vnh">
+            <objects>
+                <controller id="4sK-HA-Art" customClass="NotificationController" customModule="BibleBooks_WatchKit_App" customModuleProvider="target"/>
+            </objects>
+            <point key="canvasLocation" x="468" y="643"/>
+        </scene>
+    </scenes>
+</document>
